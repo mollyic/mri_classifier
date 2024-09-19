@@ -1,6 +1,7 @@
 # MRI Radiologist Classifier
 
 ## Overview
+---
 
 The script runs a machine learning classifier that has been trained on radiologist scores for MRI scan motion artifact and quality assessment for T1w, T2w, FLAIR 3D isometrics scans. The script processes the output .tsv files from mriqc, files can be modified or concatenated but must contain the original column names from the mriqc .tsv file. Results are outputted to a CSV file.
 ---
