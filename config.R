@@ -1,10 +1,6 @@
 
-dir.results
-#
-model.lastfit <- readRDS(paste0('/models/', model.name))
 
-
-#INPUT classifier results files 
-csv.in_data <- 'test.csv'
-#     * Metrics
-df.iqms <- read.csv(csv.in_data)
+in.data <- 'group_T1w.tsv'
+# * input results file from mriqc
+out.dir <- 'output/'
+# * location where results files will be saved 
