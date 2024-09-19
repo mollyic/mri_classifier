@@ -10,7 +10,7 @@ if (!dir.exists(out.dir)) {dir.create(out.dir)}
 #  * check if output directory exists
 out_file <- paste0(out.dir, 'results_radiolQA_',format(today(), "%Y%m%d"),  '.csv')
 # * output results file
-cols.ratings <- c("motion", "flow_ghosting", "quality")
+cols.ratings <- c("motion","quality") 
 #  * rating types 
 df.clean <- func.format_df(df.iqms)
 # * format df for classifier 
