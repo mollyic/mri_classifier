@@ -10,14 +10,14 @@ The script runs a machine learning classifier trained on radiologist scores for 
 - **input MRIQC file**: The input file is an MRI Quality Control (MRIQC) dataset that contains metadata and features related to MRI scan quality.
 - **models directory**: pre-trained models stored in `.rds` format in the 'models/' folder
 
-### 2. configuration 
-- Two input parameters should be provided to the `config.R` file: 
+### 2. configuration
+- Two input parameters should be provided to the `config.R` file:
 
 ```
 in.data <- 'group_T1w.tsv'
 # * input results file from mriqc
 out.dir <- 'output/'
-# * location where results files will be saved 
+# * location where results files will be saved
 ```
 
 ### 3. workflow overiew
@@ -31,9 +31,15 @@ out.dir <- 'output/'
 
 
 ## example usage
+1. Install R packages
 
-1. Configure paths in 'config.R' file 
-2. Run 'main.R' file 
+*Note*: if you encounter an error with the ranger install 
+'''
+# Linux
+sudo apt install r-cran-rcppeigen
+'''
+2. Configure paths in 'config.R' file
+3. Run 'main.R' file
 
 ### output example
 ```text
