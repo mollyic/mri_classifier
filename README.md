@@ -4,42 +4,52 @@
 
 The script runs a machine learning classifier trained on radiologist scores for MRI scan motion artifact and quality assessment for T1w, T2w, FLAIR 3D isometrics scans. The script processes the output .tsv files from mriqc. Files can be modified or concatenated but must contain the original column names from the mriqc .tsv file. Classification results are outputted to a CSV file.
 
-## User inputs
+# Main structure
+The repository contains
+- **Models directory**: pre-trained models stored in `.rds` format in the 'models/' folder
+- Executable `main.R` script: run to implement models on user data
+- Configurable `config.R` script: to input user specific parameters
 
-### 1. input data
-- **input MRIQC file**: The input file is an MRI Quality Control (MRIQC) dataset that contains metadata and features related to MRI scan quality.
-- **models directory**: pre-trained models stored in `.rds` format in the 'models/' folder
 
-### 2. configuration
-- Two input parameters should be provided to the `config.R` file:
-
-```
-in.data <- 'group_T1w.tsv'
-# * input results file from mriqc
-out.dir <- 'output/'
-# * location where results files will be saved
-```
-
-### 3. Workflow overview
+# Workflow overview
 - For each MRI sequence (e.g. T1w) and rating type (e.g. motion):
   - a pre-trained model is loaded based on the rating type and sequence
   - data is preprocessed for model input
   - apply the models to classify quality and motion artifact for each scan
   - save the classified results in a CSV file
 
----
+## User Configuration
 
+### 1. Input data
+- **input MRIQC file**: The input file is an MRI Quality Control (MRIQC) dataset that contains metadata and features related to MRI scan quality.
 
-## example usage
-1. Install R packages
+### 2. Path configuration
+- Two input parameters should be provided to the `config.R` file:
+```
+in.data <- 'group_T1w.tsv'
+# * input results file from mriqc
+out.dir <- 'output/'
+# * location where results files will be saved
+```
+### 3. R Package Installation
+- In an R terminal install the package 'pacman':  All other package installations should then be automatically handled by pacman, which will install and load all necessary packages
+```
+install.packages('pacman')
+```
 
-*Note*: if you encounter an error with the ranger install
-'''
+*Note*: if you encounter an error during the 'ranger' package installation you may need to manually install the requisite package 'rcppeigen'.If this is required, it's recommended to install it from the terminal in Linux.
+
+```
 # Linux
 sudo apt install r-cran-rcppeigen
-'''
-2. Configure paths in 'config.R' file
-3. Run 'main.R' file
+```
+
+---
+
+## Example usage
+
+1. Configure paths in 'config.R' file
+2. Run 'main.R' file
 
 ### Output example
 ```text
