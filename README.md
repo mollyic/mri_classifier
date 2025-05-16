@@ -4,14 +4,14 @@
 
 The script runs a machine learning classifier trained on radiologist scores for MRI scan motion artifact and quality assessment for T1w, T2w, FLAIR 3D isometrics scans. The script processes the output .tsv files from mriqc. Files can be modified or concatenated but must contain the original column names from the mriqc .tsv file. Classification results are outputted to a CSV file.
 
-# Main structure
+### Main structure
 The repository contains
 - **Models directory**: pre-trained models stored in `.rds` format in the 'models/' folder
 - Executable `main.R` script: run to implement models on user data
 - Configurable `config.R` script: to input user specific parameters
 
 
-# Workflow overview
+### Workflow overview
 - For each MRI sequence (e.g. T1w) and rating type (e.g. motion):
   - a pre-trained model is loaded based on the rating type and sequence
   - data is preprocessed for model input
