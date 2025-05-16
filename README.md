@@ -1,10 +1,10 @@
 # MRI Radiologist Classifier
 
-## overview
+## Overview
 
 The script runs a machine learning classifier trained on radiologist scores for MRI scan motion artifact and quality assessment for T1w, T2w, FLAIR 3D isometrics scans. The script processes the output .tsv files from mriqc. Files can be modified or concatenated but must contain the original column names from the mriqc .tsv file. Classification results are outputted to a CSV file.
 
-## workflow and components
+## User inputs
 
 ### 1. input data
 - **input MRIQC file**: The input file is an MRI Quality Control (MRIQC) dataset that contains metadata and features related to MRI scan quality.
@@ -20,11 +20,11 @@ out.dir <- 'output/'
 # * location where results files will be saved
 ```
 
-### 3. workflow overiew
+### 3. Workflow overview
 - For each MRI sequence (e.g. T1w) and rating type (e.g. motion):
   - a pre-trained model is loaded based on the rating type and sequence
   - data is preprocessed for model input
-  - apply the models to classify quality and motion artifact for each scab
+  - apply the models to classify quality and motion artifact for each scan
   - save the classified results in a CSV file
 
 ---
@@ -33,7 +33,7 @@ out.dir <- 'output/'
 ## example usage
 1. Install R packages
 
-*Note*: if you encounter an error with the ranger install 
+*Note*: if you encounter an error with the ranger install
 '''
 # Linux
 sudo apt install r-cran-rcppeigen
@@ -41,7 +41,7 @@ sudo apt install r-cran-rcppeigen
 2. Configure paths in 'config.R' file
 3. Run 'main.R' file
 
-### output example
+### Output example
 ```text
 ---------------------------------------
  MRI Radiologist Classifier
